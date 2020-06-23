@@ -1,4 +1,4 @@
-package com.nanyin.discoveryserver;
+package com.nanyin.provider;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
