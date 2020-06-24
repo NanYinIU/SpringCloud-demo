@@ -16,6 +16,9 @@
     <properties>
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
+<!--        <provider.mysql.url>jdbc:mysql://localhost:3318/test?serverTimezone=UTC</provider.mysql.url>-->
+<!--        <provider.mysql.user>root</provider.mysql.user>-->
+<!--        <provider.mysql.password>123456</provider.mysql.password>-->
     </properties>
 
     <dependencies>
@@ -91,7 +94,22 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.10.0</version>
+                <configuration>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <url>jdbc:mysql://127.0.0.1:3318/test</url>
+                    <username>root</username>
+                    <password>123456</password>
+                    <driver>com.mysql.cj.jdbc.Driver</driver>
+                    <outputChangeLogFile>${project.basedir}/src/main/resources/db/changelog/updatedb.mysql.sql</outputChangeLogFile>
+                    <changeLogFile>${project.basedir}/src/main/resources/db/changelog/updatedb.mysql.sql</changeLogFile>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
 
 </project>
