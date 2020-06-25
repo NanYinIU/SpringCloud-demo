@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 public class PersonServiceImpl implements PersonService {
     @Autowired
     PersonMapper personMapper;
+
+    @Override
     public Person findPersonByName(String name) {
         name = name.trim();
         return personMapper.findPersonByName(name);

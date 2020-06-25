@@ -12,7 +12,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>provider</name>
 
-
     <properties>
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
@@ -49,12 +48,13 @@
             <version>1.1.22</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
+<!--        spring cloud dubbo 和 devtools 一起会报错，注掉就好了，暂时没有解决 TODO-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -66,11 +66,30 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--  使用ali nacos 作为服务发现注册中心      -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${cloud.lastest.version}</version>
         </dependency>
+        <!--    使用dubbo作为RPC框架-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>dubbo</artifactId>-->
+<!--            <version>2.6.8</version>-->
+<!--        </dependency>-->
+
+        <!-- 添加依赖，防止出现java.lang.IllegalStateException: No such extension com.alibaba.dubbo.registry.RegistryFactory by name nacos 异常  -->
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dubbo</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
+
+
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -85,7 +104,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
 
     <build>
