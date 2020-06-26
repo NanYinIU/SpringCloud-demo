@@ -1,7 +1,7 @@
 package com.nanyin.provider.service.impl;
 
+import com.nanyin.api.service.OpenService;
 import com.nanyin.provider.service.PersonService;
-import com.nanyin.provider.service.ProviderRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @com.alibaba.dubbo.config.annotation.Service(version = "${provider.service.version}")
-public class ProviderRpcServiceImpl implements ProviderRpcService {
+public class ProviderRpcServiceImpl implements OpenService {
 
     @Autowired
     PersonService personService;

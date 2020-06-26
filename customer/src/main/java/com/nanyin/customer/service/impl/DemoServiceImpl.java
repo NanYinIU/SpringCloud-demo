@@ -1,8 +1,8 @@
 package com.nanyin.customer.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.nanyin.api.service.OpenService;
 import com.nanyin.customer.service.DemoService;
-import com.nanyin.provider.service.ProviderRpcService;
 import org.apache.dubbo.config.annotation.Service;
 
 /**
@@ -16,10 +16,10 @@ import org.apache.dubbo.config.annotation.Service;
 public class DemoServiceImpl implements DemoService {
 
     @Reference(version = "${customer.service.version}")
-    ProviderRpcService providerRpcService;
+    OpenService openService;
 
     @Override
     public String echoPerson(String name) {
-        return providerRpcService.getPersonInfo(name);
+        return openService.getPersonInfo(name);
     }
 }

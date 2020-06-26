@@ -23,6 +23,11 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${cloud.lastest.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${cloud.lastest.version}</version>
+        </dependency>
 
         <!--    使用dubbo作为RPC框架-->
 

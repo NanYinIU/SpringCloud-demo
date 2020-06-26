@@ -11,6 +11,7 @@
     <modules>
         <module>provider</module>
         <module>customer</module>
+        <module>api</module>
     </modules>
 
     <properties>
